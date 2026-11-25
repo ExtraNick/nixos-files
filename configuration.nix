@@ -8,7 +8,6 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      <home-manager/nixos>
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -57,20 +56,13 @@
   
   #hyprland
   programs.hyprland.enable = true;
+  programs.dms-shell.enable = true;
 
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [ xdg-desktop-portal-hyprland ];
   };
 
-  #home-manager
-  home-manager.users.nick = { pkgs, ... }: {
-	home.packages = [ pkgs.atool pkgs.httpie ];
-	programs.bash.enable = true;
-
-	home.stateVersion = "26.05";
-
-  };
   
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -128,8 +120,11 @@
     pwvucontrol
     floorp-bin
     streamlink
+    slskd
+    moonlight-qt
+    grim
+    flameshot
    ];
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
