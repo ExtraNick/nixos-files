@@ -10,6 +10,17 @@
   home.username = "nick";
   home.homeDirectory = "/home/nick";
 
+services.flameshot = {
+  # Also installs/enables flameshot
+  enable = true;
+  settings = {
+    General = {
+      useGrimAdapter = true;
+      # Stops warnings for using Grim
+      disabledGrimWarning = true;
+    };
+  };
+};
 
   wayland.windowManager.hyprland.enable = true;
 #------------------HYPRLAND CONFIG -> JSON to lua---------------------------
