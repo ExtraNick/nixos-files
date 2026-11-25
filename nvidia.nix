@@ -1,4 +1,7 @@
-   hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
+{ config, lib, pkgs, modulesPath, ... }:
+
+{
+  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
   hardware.graphics = {
     enable = true;
   };
@@ -31,4 +34,5 @@
     # Enable the Nvidia settings menu,
 	# accessible via `nvidia-settings`.
     nvidiaSettings = true;
-
+};
+};
